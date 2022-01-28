@@ -2,8 +2,11 @@ import React,{useState} from 'react';
 
 const container = {
   backgroundColor:'white',
-  width:450,
-  borderRadius: 8
+  width:600,
+  borderRadius: 8,
+  margin: 'auto',
+  marginTop: 10,
+  marginBottom: 10
 }
 
 function Post({author,contentText,time,imageLink,likeCount}) {
@@ -26,7 +29,7 @@ function Post({author,contentText,time,imageLink,likeCount}) {
         {contentText}
       </div>
       <div style={{padding:10}}>
-        <img src={imageLink} style={{width: '90%'}}/>
+        <img src={imageLink} style={{width: '90%',paddingLeft: 20}} alt="Img 404"/>
       </div>
       <div style={{textAlign:'justify', padding: 10,color: 'GrayText'}}>
           {
@@ -34,8 +37,8 @@ function Post({author,contentText,time,imageLink,likeCount}) {
             :(<span>{likeCount} people liked this.</span>)
           }
       </div>
-      <div style={{textAlign:'justify', padding: 10,display: 'flex'}}>
-        <div style={{flex:1,cursor:'pointer'}} onClick={()=>setLike(prevLike=> !prevLike)}>Like</div>
+      <div style={{textAlign:'center', padding: 10,display: 'flex'}}>
+        <div style={{flex:1,cursor:'pointer',color: (like?'blue':'black')}} onClick={()=>setLike(prevLike=> !prevLike)}>Like</div>
         <div style={{flex:1,cursor:'pointer'}}>Comment</div>
         <div style={{flex:1,cursor:'pointer'}}>Share</div>
         <div style={{flex:1,cursor:'pointer'}}>Send</div>
